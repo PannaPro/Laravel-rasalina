@@ -61,7 +61,7 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="true">
                                     <li>
-                                        <a href="javascript: void(0);" class="has-arrow">Home Page</a>
+                                        <a href="javascript: void(0);" class="has-arrow"><i class="ri-dashboard-line"></i>Home Page</a>
                                         <ul class="sub-menu" aria-expanded="true">
                                             <li><a href="{{ route('HomeSlider_settings') }}">Home Slider</a></li>
                                             <li><a href="{{ route('about.slider') }}">About Slider</a></li>

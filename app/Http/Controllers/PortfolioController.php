@@ -110,7 +110,7 @@ class PortfolioController extends Controller
                 'alert-type' => 'success'
             );
 
-            return redirect()->back()->with($notification);
+            return redirect()->route('all.portfolio')->with($notification);
         }
     }
 
