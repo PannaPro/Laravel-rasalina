@@ -19,7 +19,7 @@ $multImages = App\Models\AboutImage::all();
                                 <h2 class="title">About me</h2>
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                        <li class="breadcrumb-item"><a href="{{ route('homeSlide') }}">Home</a></li>
                                         <li class="breadcrumb-item active" aria-current="page">About Me</li>
                                     </ol>
                                 </nav>
@@ -29,11 +29,13 @@ $multImages = App\Models\AboutImage::all();
                 </div>
                 <div class="breadcrumb__wrap__icon">
                     <ul>
-                    @foreach($multImages as $item)
-                                <li>
-                                    <img class="light" src="{{ asset($item->multi_image) }}" alt="XD">
-                                </li>
-                            @endforeach
+                    
+            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon01.png')}}" alt=""></li>
+            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon02.png')}}" alt=""></li>
+            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon03.png')}}" alt=""></li>
+            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon04.png')}}" alt=""></li>
+            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon05.png')}}" alt=""></li>
+            <li><img src="{{asset('frontend/assets/img/icons/breadcrumb_icon06.png')}}" alt=""></li>
                     </ul>
                 </div>
             </section>

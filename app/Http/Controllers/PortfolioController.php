@@ -10,17 +10,20 @@ use Intervention\Image\Facades\Image;
 
 class PortfolioController extends Controller
 {
+
     public function PortfolioPage(){
 
         $portfolioData = PortfolioModel::latest()->get();
         return view('admin.portfolio.all_portfolio', compact('portfolioData'));
-    }
+    } // end method
+
 
     public function AddPortfolioPage(){
         
         return view('admin.portfolio.add_portfolio');
 
-    }
+    } // end method
+
 
     public function EditPortfolioSlide(Request $request){
 
@@ -59,14 +62,16 @@ class PortfolioController extends Controller
 
         return redirect()->route('all.portfolio')->with($notification);
 
-    }
+    } // end method
+
 
     public function UpdatePortfolio($id){
         
         $updatePortfolio = PortfolioModel::findOrFail($id);
         return view('admin.portfolio.update_portfolio', compact('updatePortfolio'));
  
-    }
+    } // end method
+
 
     public function RequestUpdatePortfolio(Request $request){
 
@@ -112,7 +117,9 @@ class PortfolioController extends Controller
 
             return redirect()->route('all.portfolio')->with($notification);
         }
-    }
+
+    } // end method
+
 
     public function DeletePortfolio($id){
 
@@ -130,7 +137,14 @@ class PortfolioController extends Controller
         );
         
         return redirect()->route('all.portfolio')->with($notification);
-    }
+
+    } // end method
 
     
+    public function PortfolioDetails($id){
+
+        $portfolio = PortfolioModel::findOrFail($id);
+        return view('frontend.portfolio_details', compact('portfolio'));
+
+    } // end method
 }

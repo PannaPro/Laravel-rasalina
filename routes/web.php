@@ -81,6 +81,8 @@ Route::controller(PortfolioController::class)->group(function () {
     Route::post('/portfolio/update', 'RequestUpdatePortfolio')->name('request.update.portfolio');
     Route::get('/delete/portfolio/{id}', 'DeletePortfolio')->name('delete.portfolio');
     
+    Route::get('/portfolio/details/{id}', 'PortfolioDetails')->name('portfolio.details');
+
 });
 
 
