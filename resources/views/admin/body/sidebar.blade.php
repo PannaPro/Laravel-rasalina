@@ -102,6 +102,17 @@
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                <i class="ri-dashboard-line"></i>
+                                    <span>Blog</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('blog.category') }}">All Blog Category</a></li>
+                                    <li><a href="{{ route('add.blog.category') }}">Add New category</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-profile-line"></i>
                                     <span>Utility</span>
                                 </a>

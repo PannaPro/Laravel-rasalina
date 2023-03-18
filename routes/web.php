@@ -6,18 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutSession;
 use App\Http\Controllers\HomeSliderController;
 use App\Http\Controllers\PortfolioController;
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\BlogController;
 
 
 
@@ -31,6 +20,25 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+//////////////////////////////////////////////////////////////////////////////////
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
 // контроллер Админ панели
 Route::controller(LogoutSession::class)->group(function () {
     Route::get('logout', 'destroy')->name('admin.logout'); //завершить сессию аутентификации и перейти на страницу авторизации
@@ -44,6 +52,9 @@ Route::controller(LogoutSession::class)->group(function () {
 });
 
 
+
+
+//////////////////////////////////////////////////////////////////////////////////
 // контроллер страниц пользователя
 Route::controller(HomeSliderController::class)->group(function () {
     Route::get('/home/settings', 'SliderSettings')->name('HomeSlider_settings');
@@ -52,6 +63,10 @@ Route::controller(HomeSliderController::class)->group(function () {
     Route::get('/back', 'redirectBack')->name('back.step');
 });
 
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
 // контроллер страницы About 
 Route::controller(AboutController::class)->group(function () {
     Route::get('/about', 'AboutPage')->name('about.page');
@@ -71,6 +86,9 @@ Route::controller(AboutController::class)->group(function () {
 });
 
 
+
+
+//////////////////////////////////////////////////////////////////////////////////
 // портфолио
 Route::controller(PortfolioController::class)->group(function () {
     Route::get('/portfolio', 'PortfolioPage')->name('all.portfolio');
@@ -87,10 +105,23 @@ Route::controller(PortfolioController::class)->group(function () {
 
 
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//////////////////////////////////////////////////////////////////////////////////
+// Блог / статьи
+Route::controller(BlogController::class)->group(function () {
+    ///////////////////////////////////////////
+    /////// Контроллер категорий блога  ///////
+    Route::get('/blog/category/all', 'AllBlogCategory')->name('blog.category');
+    Route::get('/blog/category/add', 'AddBlogCategory')->name('add.blog.category');
+    Route::post('/blog/category/create', 'CreateBlogCategory')->name('create.blog.category');
+    Route::get('/blog/category/update/{id}', 'UpdateBlogCategory')->name('update.category');
+    Route::post('/blog/category/update', 'UpdateCategory')->name('update.blog.category');
+    Route::get('/category/delete/{id}', 'DeleteCategory')->name('delete.category');
+    ////////////////////////////////////////////
+
+
+
+    
+    
+    
 });
 
-require __DIR__.'/auth.php';
