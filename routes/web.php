@@ -122,10 +122,14 @@ Route::controller(BlogController::class)->group(function () {
     Route::get('/all/blog/publication', 'BlogPublication')->name('all.blog');
     Route::get('/add/blog/publication', 'AddBlogPublication')->name('add.blog');
     Route::post('/create/blog/publication', 'CreatePublication')->name('create.publication');
-    
-    
-   
-    
+    Route::get('/edit/blog/publication/{id}', 'UpdateBlogPublication')->name('update.blog');
+    Route::post('/update/blog/publication', 'RequestUpdatePublication')->name('request.update.blog');
+    Route::get('/delete/blog/publication/{id}', 'DeleteBlogPublication')->name('delete.blog');
+    Route::get('/blog/publication/{id}', 'BlogDetails')->name('blog.details');
+
+    Route::get('/blog/category/{id}', 'CategoryBlog')->name('category.blog');
+    Route::get('/blog', 'ShowAllBlog')->name('all.blog');
+
     
 });
 

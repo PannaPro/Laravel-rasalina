@@ -54,18 +54,20 @@
 
                                             <tr>
                                                 <td> {{ $i++ }}</td>
-                                                <td> {{ $item->blog_category_id }}</td>
+                                                
+                                                <td> {{ $item['category']['blog_category'] }}</td>
+
                                                 <td> {{ $item->blog_title }}</td>
                                                 <td> {{ $item->blog_tags }}</td>
 
                                                 <td> <img src="{{ asset($item->blog_image) }}"
                                                 alt="" style="width: 150px; hight:200px;"> </td>
                                                 <td>
-                                                    <a href="" class="btn btn-info sm" title="Edit Publication">
+                                                    <a href="{{ route('update.blog', $item->id) }}" class="btn btn-info sm" title="Edit Publication">
                                                     <i class="fas fa-edit"></i>
                                                     </a>
 
-                                                    <a href="" class="btn btn-danger sm" title="Delete Publication" id="delete">
+                                                    <a href="{{ route('delete.blog', $item->id) }}" class="btn btn-danger sm" title="Delete Publication" id="delete">
                                                     <i class="fas fa-trash-alt"></i>
                                                     </a>
                                                 
