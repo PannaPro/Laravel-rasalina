@@ -1,4 +1,9 @@
 @extends('frontend.main')
+
+@section('title')
+Blog Details | Rasalina
+@endsection
+
 @section('main')
 
 

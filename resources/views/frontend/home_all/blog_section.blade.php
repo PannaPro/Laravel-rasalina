@@ -13,7 +13,7 @@ $blogPublication = App\Models\Blog::latest()->limit(3)->get();
                                 <div class="blog__post__thumb">
                                     <a href="{{ route('blog.details', $item->id) }}"><img src="{{ asset($item->blog_image) }}" alt=""></a>
                                     <div class="blog__post__tags">
-                                        <a href="blog.html">{{$item['category']['blog_category']}}</a>
+                                        <a href="{{ route('category.blog', $item->id) }}">{{$item['category']['blog_category']}}</a>
                                     </div>
                                 </div>
                                 <div class="blog__post__content">
@@ -26,7 +26,7 @@ $blogPublication = App\Models\Blog::latest()->limit(3)->get();
                         @endforeach
                     </div>
                     <div class="blog__button text-center">
-                        <a href="blog.html" class="btn">more blog</a>
+                        <a href="{{ route('all.blog') }}" class="btn">more blog</a>
                     </div>
                 </div>
             </section>

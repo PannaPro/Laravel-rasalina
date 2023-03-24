@@ -141,6 +141,7 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
         <script src="{{ asset('backend/assets/js/code.js') }}"></script>
+        <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" integrity="sha512-9UR1ynHntZdqHnwXKTaOm1s6V9fExqejKvg5XMawEMToW4sSw+3jtLrYfZPijvnwnnE8Uol1O9BcAskoxgec+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         

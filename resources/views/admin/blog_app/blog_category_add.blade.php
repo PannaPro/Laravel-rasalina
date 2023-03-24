@@ -1,6 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
 <style>
     .page-content {
         margin-left: 20%;
@@ -26,10 +28,7 @@
                             <label for="example-text-input" class="col-sm-2 col-form-label">Category Name</label>
                             <div class="col-sm-5">
                             <input name="blog_category" class="form-control" type="text" id="example-text-input">
-                            @error('blog_category')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                            </div> 
+                            </div>
                         </div>
                         <br><br>
 

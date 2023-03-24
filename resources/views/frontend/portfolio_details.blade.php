@@ -1,6 +1,10 @@
 @extends('frontend.main')
-@section('main')
 
+@section('title')
+Portfolio Details | Rasalina
+@endsection
+
+@section('main')
 
 <main>
 

@@ -13,7 +13,7 @@ class AboutController extends Controller
     
     public function AboutPage(){
 
-        return view('frontend.home_all.about_page');
+        return view('frontend.about_page');
     } //end
 
     public function AboutPageSlider()

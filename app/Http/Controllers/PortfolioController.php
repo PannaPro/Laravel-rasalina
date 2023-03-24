@@ -13,9 +13,19 @@ class PortfolioController extends Controller
 
     public function PortfolioPage(){
 
+        $portfolio = PortfolioModel::latest()->get();
+        return view('frontend.portfolio', compact('portfolio'));
+
+    } // end method
+
+
+
+    public function AllPortfolioPage(){
+
         $portfolioData = PortfolioModel::latest()->get();
         return view('admin.portfolio.all_portfolio', compact('portfolioData'));
     } // end method
+
 
 
     public function AddPortfolioPage(){
@@ -23,6 +33,8 @@ class PortfolioController extends Controller
         return view('admin.portfolio.add_portfolio');
 
     } // end method
+
+
 
 
     public function EditPortfolioSlide(Request $request){

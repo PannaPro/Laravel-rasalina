@@ -1,3 +1,10 @@
+@php
+
+$route = Route::current()->getName();
+
+@endphp
+
+
 <div id="sticky-header" class="menu__area transparent-header">
                 <div class="container custom-container">
                     <div class="row">
@@ -11,12 +18,19 @@
                                     </div>
                                     <div class="navbar__wrap main__menu d-none d-xl-flex">
                                         <ul class="navigation">
-                                            <li class="active"><a href="{{ route('homeSlide')}}">Home</a></li>
-                                            <li><a href="{{ route('about.page')}}">About</a></li>
-                                            <li><a href="#portfolio">Portfolio</a></li>
+
+                                            <li class="{{ ($route == 'homeSlide')? 'active': '' }}"><a href="{{ route('homeSlide')}}">Home</a></li>
+                                            
+                                            <li class="{{ ($route == 'about.page')? 'active': '' }}"><a href="{{ route('about.page')}}">About</a></li>
+                                            
+                                            <li class="{{ ($route == 'portfolio')? 'active': '' }}"><a href="{{ route('portfolio') }}">Portfolio</a></li>
+                                            
                                             <li><a href="{{ route('dashboard') }}">Admin</a></li>
-                                            <li class="menu-item-has-children"><a href="{{ route('all.blog') }}">Our Blog</a></li>
-                                            <li><a href="contact.html">contact me</a></li>
+                                            
+                                            <li class="{{ ($route == 'all.blog')? 'active': '' }}"><a href="{{ route('all.blog') }}">Our Blog</a></li>
+                                            
+                                            <li class="{{ ($route == 'contact.me')? 'active': '' }}"><a href="{{ route('contact.me') }}">contact me</a></li>
+                                        
                                         </ul>
                                     </div>
                                     <div class="header__btn d-none d-md-block">

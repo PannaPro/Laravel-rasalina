@@ -7,6 +7,8 @@ use App\Http\Controllers\LogoutSession;
 use App\Http\Controllers\HomeSliderController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\FooterController;
+use App\Http\Controllers\ContactController;
 
 
 
@@ -19,6 +21,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+
 
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -40,16 +44,22 @@ require __DIR__.'/auth.php';
 
 //////////////////////////////////////////////////////////////////////////////////
 // контроллер Админ панели
-Route::controller(LogoutSession::class)->group(function () {
-    Route::get('logout', 'destroy')->name('admin.logout'); //завершить сессию аутентификации и перейти на страницу авторизации
-    Route::get('/admin/profile', 'Profile')->name('admin.profile'); //получить страницу редактирования профиля по id
-    Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
-    Route::post('/store/profile', 'StoreProfile')->name('store.profile'); //создали путь для обработки метода POST в контроллере
+
+Route::middleware(['auth'])->group(function () { // добавление посредника на группу маршрутов https://laravel.su/docs/8.x/middleware
     
-    Route::get('/change/password', 'ChangePassword')->name('change.password');
-    Route::post('/update/password', 'UpdatePassword')->name('update.password');
-    
+    Route::controller(LogoutSession::class)->group(function () {
+        Route::get('logout', 'destroy')->name('admin.logout'); //завершить сессию аутентификации и перейти на страницу авторизации
+        Route::get('/admin/profile', 'Profile')->name('admin.profile'); //получить страницу редактирования профиля по id
+        Route::get('/edit/profile', 'EditProfile')->name('edit.profile');
+        Route::post('/store/profile', 'StoreProfile')->name('store.profile'); //создали путь для обработки метода POST в контроллере
+        
+        Route::get('/change/password', 'ChangePassword')->name('change.password');
+        Route::post('/update/password', 'UpdatePassword')->name('update.password');
+        
+    });
+
 });
+
 
 
 
@@ -91,7 +101,7 @@ Route::controller(AboutController::class)->group(function () {
 //////////////////////////////////////////////////////////////////////////////////
 // портфолио
 Route::controller(PortfolioController::class)->group(function () {
-    Route::get('/portfolio', 'PortfolioPage')->name('all.portfolio');
+    Route::get('/all/portfolio', 'AllPortfolioPage')->name('all.portfolio');
     Route::get('/add/portfolio', 'AddPortfolioPage')->name('add.portfolio');
     Route::post('/portfolio/add', 'EditPortfolioSlide')->name('add.portfolio.slide');
 
@@ -101,6 +111,9 @@ Route::controller(PortfolioController::class)->group(function () {
     
     Route::get('/portfolio/details/{id}', 'PortfolioDetails')->name('portfolio.details');
 
+    Route::get('/portfolio', 'PortfolioPage')->name('portfolio');
+
+    
 });
 
 
@@ -129,7 +142,27 @@ Route::controller(BlogController::class)->group(function () {
 
     Route::get('/blog/category/{id}', 'CategoryBlog')->name('category.blog');
     Route::get('/blog', 'ShowAllBlog')->name('all.blog');
-
+});
     
+
+
+    //////////////////////////////////////////////////////////////////////////////////
+// Блог / статьи
+Route::controller(FooterController::class)->group(function () {
+    ///////////////////////////////////////////
+    /////// Контроллер категорий блога  ///////
+    Route::get('/footer/edit', 'FooterSection')->name('footer.section');
+    Route::post('/footer/update', 'UpdateFooter')->name('update.footer');
+    
+
 });
 
+
+Route::controller(ContactController::class)->group(function () {
+
+    Route::get('/contact', 'Contact')->name('contact.me');
+    Route::post('/contact/message', 'ContactMessage')->name('contact.message');
+    Route::get('/contact/message', 'MessageFromForm')->name('client.message');
+    Route::get('/contact/delete/{id}', 'DeleteMessage')->name('delete.message');
+
+});

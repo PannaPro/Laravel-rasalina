@@ -33,8 +33,18 @@
                                             <li><a href="{{ route('add.portfolio') }}">Add New Portfolio</a></li>
                                 </ul>
                             </li>
-                            
 
+                            <li class="menu-title">Footer</li>
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-vip-crown-2-line"></i>
+                                    <span>Footer</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="{{ route('footer.section') }}">Footer Setting</a></li>
+                                </ul>
+                            </li>
+                            
                             <li class="menu-title">Blog</li>
 
                             <li>
@@ -58,6 +68,15 @@
                                     <li><a href="{{ route('add.blog.category') }}">Add New category</a></li>
 
                                 </ul>
+                            </li>
+
+                            <li class="menu-title">Clients Messages</li>
+
+                            <li>
+                                <a href="{{ route('client.message') }}" class="waves-effect">
+                                    <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-success float-end"></span>
+                                    <span>Form Messages</span>
+                                </a>
                             </li>
 
                             <li class="menu-title">Layout</li>
