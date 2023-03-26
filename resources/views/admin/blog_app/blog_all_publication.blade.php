@@ -49,11 +49,10 @@
                                         
         
                                             <tbody>
-                                                @php ($i = 1)
-                                                @foreach( $blogPublication as $item )
+                                                @foreach( $blogPublication as $key=>$item )
 
                                             <tr>
-                                                <td> {{ $i++ }}</td>
+                                                <td> {{ $key+1 }}</td>
                                                 
                                                 <td> {{ $item['category']['blog_category'] }}</td>
 

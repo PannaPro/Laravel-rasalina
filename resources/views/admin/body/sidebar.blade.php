@@ -53,7 +53,7 @@
                                     <span>Blog Publication</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="{{ route('all.blog') }}">All Publication</a></li>
+                                    <li><a href="{{ route('admin.all.blog') }}">All Publication</a></li>
                                     <li><a href="{{ route('add.blog') }}">Add New Publication</a></li>
 
                                 </ul>

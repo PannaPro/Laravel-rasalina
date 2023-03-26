@@ -132,7 +132,7 @@ Route::controller(BlogController::class)->group(function () {
     ////////////////////////////////////////////
 
 
-    Route::get('/all/blog/publication', 'BlogPublication')->name('all.blog');
+    Route::get('/all/blog/publication', 'BlogPublication')->name('admin.all.blog');
     Route::get('/add/blog/publication', 'AddBlogPublication')->name('add.blog');
     Route::post('/create/blog/publication', 'CreatePublication')->name('create.publication');
     Route::get('/edit/blog/publication/{id}', 'UpdateBlogPublication')->name('update.blog');

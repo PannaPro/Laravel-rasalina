@@ -20,14 +20,14 @@
                         <h4 class="card-title">Add New Blog Category</h4>
                         <br><br>
                     
-                         <form method="post" action="{{ route('create.blog.category')}}" enctype="multipart/form-data">
+                         <form id="myForm" method="post" action="{{ route('create.blog.category')}}" enctype="multipart/form-data">
                          @csrf
 
 
                         <div class="row mb-4">
                             <label for="example-text-input" class="col-sm-2 col-form-label">Category Name</label>
-                            <div class="col-sm-5">
-                            <input name="blog_category" class="form-control" type="text" id="example-text-input">
+                            <div class="form-group col-sm-5">
+                            <input  name="blog_category" class="form-control" type="text" id="example-text-input">
                             </div>
                         </div>
                         <br><br>
@@ -45,7 +45,36 @@
 
 </div>
 
+<script type="text/javascript">
 
+$(document).ready(function () {
+    $('#myForm').validate({
+        rules: {
+            blog_category: {
+                required: true,
+            },
+        },
+        messages :{
+            blog_category: {
+             required : 'Please Enter Blog Category',
+            },
+        },
+        errorElement: 'span',
+        errorPlacement: function(error, element){
+            error.addClass('invalid-feedback');
+            element.closest('.form-group').append(error);
+        },
+        highlight : function(element, errorClass, validClass){
+            $(document).addClass('is-invalid');
+        },
+        unhighlight : function(element, errorClass, validClass){
+            $(document).removeClass('is-invalid');
+        },
+    });
+  
+});
+
+</script>
 
 
 @endsection 
