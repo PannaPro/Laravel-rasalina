@@ -191,10 +191,12 @@ class BlogController extends Controller
 
     public function ShowAllBlog(){
 
+        $recentblog = Blog::latest()->limit(5)->get();
+
         $allblog = Blog::latest()->paginate(2);
         $categories = BlogCategory::orderBy('blog_category', 'ASC')->get();
 
-        return view('frontend.blog_page', compact('allblog', 'categories'));
+        return view('frontend.blog_page', compact('allblog', 'categories', 'recentblog'));
 
     }
 

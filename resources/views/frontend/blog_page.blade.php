@@ -83,10 +83,8 @@ Our Blog | Rasalina
                     <div class="widget">
                         <h4 class="widget-title">Recent Blog</h4>
                         <ul class="rc__post">
-
-
                         
-                        @foreach($allblog as $blog)
+                        @foreach($recentblog as $blog)
                             <li class="rc__post__item">
                                 <div class="rc__post__thumb">
                                     <a href="{{ route('blog.details', $blog->id) }}"><img src="{{ asset($blog->blog_image) }}" alt=""></a>
