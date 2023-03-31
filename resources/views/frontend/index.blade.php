@@ -17,7 +17,7 @@ PHP Development | Rasalina
             <!-- about-area-end -->
 
             <!-- services-area -->
-            <section class="services">
+            <!-- <section class="services">
                 <div class="container">
                     <div class="services__title__wrap">
                         <div class="row align-items-center justify-content-between">
@@ -145,7 +145,7 @@ PHP Development | Rasalina
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
             <!-- services-area-end -->
 
             <!-- work-process-area -->
@@ -154,7 +154,7 @@ PHP Development | Rasalina
                     <div class="row justify-content-center">
                         <div class="col-xl-6 col-lg-8">
                             <div class="section__title text-center">
-                                <span class="sub-title">03 - Working Process</span>
+                                <span class="sub-title">02 - Working Process</span>
                                 <h2 class="title">A clear product design process is the basis of success</h2>
                             </div>
                         </div>
@@ -256,11 +256,11 @@ PHP Development | Rasalina
                         <div class="col-lg-6">
                             <div class="partner__content">
                                 <div class="section__title">
-                                    <span class="sub-title">05 - partners</span>
+                                    <span class="sub-title">04 - partners</span>
                                     <h2 class="title">I proud to have collaborated with some awesome companies</h2>
                                 </div>
                                 <p>I'm a bit of a digital product junky. Over the years, I've used hundreds of web and mobile apps in different industries and verticals. Eventually, I decided that it would be a fun challenge to try designing and building my own.</p>
-                                <a href="contact.html" class="btn">Start a conversation</a>
+                                <a href="{{ route('contact.me') }}" class="btn">Start a conversation</a>
                             </div>
                         </div>
                     </div>
@@ -287,7 +287,7 @@ PHP Development | Rasalina
                         <div class="col-xl-5 col-lg-6">
                             <div class="testimonial__wrap">
                                 <div class="section__title">
-                                    <span class="sub-title">06 - Client Feedback</span>
+                                    <span class="sub-title">05 - Client Feedback</span>
                                     <h2 class="title">Happy clients feedback</h2>
                                 </div>
                                 <div class="testimonial__active">
@@ -328,35 +328,7 @@ PHP Development | Rasalina
             <!-- blog-area-end -->
 
             <!-- contact-area -->
-            <section class="homeContact">
-                <div class="container">
-                    <div class="homeContact__wrap">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="section__title">
-                                    <span class="sub-title">07 - Say hello</span>
-                                    <h2 class="title">Any questions? Feel free <br> to contact</h2>
-                                </div>
-                                <div class="homeContact__content">
-                                    <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form</p>
-                                    <h2 class="mail"><a href="mailto:Info@webmail.com">Info@webmail.com</a></h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="homeContact__form">
-                                    <form action="#">
-                                        <input type="text" placeholder="Enter name*">
-                                        <input type="email" placeholder="Enter mail*">
-                                        <input type="number" placeholder="Enter number*">
-                                        <textarea name="message" placeholder="Enter Massage*"></textarea>
-                                        <button type="submit">Send Message</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            @include('frontend.body.contact_form')
             <!-- contact-area-end -->
 
        @endsection
