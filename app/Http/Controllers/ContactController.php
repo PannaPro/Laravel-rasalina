@@ -20,7 +20,6 @@ class ContactController extends Controller
         ContactModel::insert([
             'name' => $request->name,
             'email' => $request->email,
-            'subject' => $request->subject,
             'phone' => $request->phone,
             'message' => $request->message,            
             'created_at' => Carbon::now(),

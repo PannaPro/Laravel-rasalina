@@ -40,6 +40,7 @@
                         <div class="p-3">
                             <form class="form-horizontal mt-3" method="POST" action="{{ route('register') }}">
                                 @csrf
+                                
 
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
@@ -61,6 +62,8 @@
                                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                                     </div>
                                 </div>
+
+                                <input type="hidden" name="profile_image" value="">
     
                                 <div class="form-group mb-3 row">
                                     <div class="col-12">
@@ -90,6 +93,8 @@
                                     </div>
                                 </div>
     
+
+
                                 <div class="form-group mt-2 mb-0 row">
                                     <div class="col-12 mt-3 text-center">
                                         <a href="{{ asset('login')}}" class="text-muted">Already have account?</a>

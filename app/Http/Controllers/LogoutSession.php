@@ -79,6 +79,8 @@ class LogoutSession extends Controller
         // аналогично         $data->name = $request->name;
             $data['profile_image'] = $filename;
         }
+
+
         $data->save();
 
         $notification = array (
